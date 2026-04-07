@@ -1,0 +1,29 @@
+name: api-throttling-env
+
+description: |
+  A real-world RL environment simulating API request handling under capacity constraints.
+  The agent decides to accept, delay, or reject requests to maximize reward while avoiding overload and SLA violations.
+
+entry_point: env.api_env:APIEnv
+
+observation_space:
+  current_load: int
+  capacity: int
+  time: int
+  next_request:
+    type: str
+    load: int
+    latency: int
+
+action_space:
+  0: reject
+  1: delay
+  2: accept
+
+tasks:
+  - name: easy
+    difficulty: easy
+  - name: medium
+    difficulty: medium
+  - name: hard
+    difficulty: hard
