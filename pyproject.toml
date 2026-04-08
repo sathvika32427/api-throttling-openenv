@@ -3,6 +3,14 @@ name = "api-throttling-openenv"
 version = "0.1.0"
 description = "OpenEnv API throttling project"
 requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "openenv>=0.1.13"
+]
+
+[project.scripts]
+server = "server.app:app"
 
 [tool.openenv]
-entrypoint = "app:app"
+entrypoint = "server.app:app"
